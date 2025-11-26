@@ -1,0 +1,175 @@
+# Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
+do connect4.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:33:25 on Dec 09,2024
+# vlog -reportprogress 300 ./ClockDivider.sv ./Connect4.sv ./GameLogic.sv ./GameOver.sv ./HEXDisplay.sv ./LEDDriver.sv ./TokenAnimation.sv 
+# -- Compiling module ClockDivider
+# -- Compiling module Connect4
+# -- Compiling module Connect4_tb
+# -- Compiling module GameLogic
+# -- Compiling module GameLogic_tb
+# -- Compiling module GameOver
+# -- Compiling module GameOver_tb
+# -- Compiling module HEXDisplay
+# -- Compiling module HEXDisplay_tb
+# -- Compiling module LEDDriver
+# -- Compiling module LEDDriver_Test
+# -- Compiling module LEDDriver_TestPhysical
+# -- Compiling module TokenAnimation
+# -- Compiling module TokenAnimation_tb
+# 
+# Top level modules:
+# 	Connect4_tb
+# 	GameLogic_tb
+# 	GameOver_tb
+# 	HEXDisplay_tb
+# 	LEDDriver_Test
+# 	LEDDriver_TestPhysical
+# 	TokenAnimation_tb
+# End time: 09:33:25 on Dec 09,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work Connect4_tb 
+# Start time: 09:33:26 on Dec 09,2024
+# Loading sv_std.std
+# Loading work.Connect4_tb
+# Loading work.Connect4
+# Loading work.ClockDivider
+# Loading work.GameLogic
+# Loading work.TokenAnimation
+# Loading work.GameOver
+# Loading work.HEXDisplay
+# Loading work.LEDDriver
+# WARNING: No extended dataflow license exists
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: marie  Hostname: DESKTOP-PNROFJ5  ProcessID: 18404
+#           Attempting to use alternate WLF file "./wlfts77bqr".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlfts77bqr
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./Connect4.sv(178)
+#    Time: 5450 ps  Iteration: 1  Instance: /Connect4_tb
+# Break in Module Connect4_tb at ./Connect4.sv line 178
+do connect4.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:44:40 on Dec 09,2024
+# vlog -reportprogress 300 ./ClockDivider.sv ./Connect4.sv ./GameLogic.sv ./GameOver.sv ./HEXDisplay.sv ./LEDDriver.sv ./TokenAnimation.sv 
+# -- Compiling module ClockDivider
+# -- Compiling module Connect4
+# -- Compiling module Connect4_tb
+# -- Compiling module GameLogic
+# -- Compiling module GameLogic_tb
+# -- Compiling module GameOver
+# -- Compiling module GameOver_tb
+# -- Compiling module HEXDisplay
+# -- Compiling module HEXDisplay_tb
+# -- Compiling module LEDDriver
+# -- Compiling module LEDDriver_Test
+# -- Compiling module LEDDriver_TestPhysical
+# -- Compiling module TokenAnimation
+# -- Compiling module TokenAnimation_tb
+# 
+# Top level modules:
+# 	Connect4_tb
+# 	GameLogic_tb
+# 	GameOver_tb
+# 	HEXDisplay_tb
+# 	LEDDriver_Test
+# 	LEDDriver_TestPhysical
+# 	TokenAnimation_tb
+# End time: 09:44:40 on Dec 09,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 09:44:54 on Dec 09,2024, Elapsed time: 0:11:28
+# Errors: 0, Warnings: 3
+# vsim -voptargs=""+acc"" -t 1ps -lib work Connect4_tb 
+# Start time: 09:44:54 on Dec 09,2024
+# Loading sv_std.std
+# Loading work.Connect4_tb
+# Loading work.Connect4
+# Loading work.ClockDivider
+# Loading work.GameLogic
+# Loading work.TokenAnimation
+# Loading work.GameOver
+# Loading work.HEXDisplay
+# Loading work.LEDDriver
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: marie  Hostname: DESKTOP-PNROFJ5  ProcessID: 18404
+#           Attempting to use alternate WLF file "./wlftdgc70i".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftdgc70i
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./Connect4.sv(178)
+#    Time: 130004150 ps  Iteration: 1  Instance: /Connect4_tb
+# Break in Module Connect4_tb at ./Connect4.sv line 178
+add wave -position end  sim:/Connect4_tb/LEDR[0]
+add wave -position 1  sim:/Connect4_tb/KEY[0]
+do connect4.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 09:50:32 on Dec 09,2024
+# vlog -reportprogress 300 ./ClockDivider.sv ./Connect4.sv ./GameLogic.sv ./GameOver.sv ./HEXDisplay.sv ./LEDDriver.sv ./TokenAnimation.sv 
+# -- Compiling module ClockDivider
+# -- Compiling module Connect4
+# -- Compiling module Connect4_tb
+# -- Compiling module GameLogic
+# -- Compiling module GameLogic_tb
+# -- Compiling module GameOver
+# -- Compiling module GameOver_tb
+# -- Compiling module HEXDisplay
+# -- Compiling module HEXDisplay_tb
+# -- Compiling module LEDDriver
+# -- Compiling module LEDDriver_Test
+# -- Compiling module LEDDriver_TestPhysical
+# -- Compiling module TokenAnimation
+# -- Compiling module TokenAnimation_tb
+# 
+# Top level modules:
+# 	Connect4_tb
+# 	GameLogic_tb
+# 	GameOver_tb
+# 	HEXDisplay_tb
+# 	LEDDriver_Test
+# 	LEDDriver_TestPhysical
+# 	TokenAnimation_tb
+# End time: 09:50:32 on Dec 09,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 09:50:34 on Dec 09,2024, Elapsed time: 0:05:40
+# Errors: 0, Warnings: 2
+# vsim -voptargs=""+acc"" -t 1ps -lib work Connect4_tb 
+# Start time: 09:50:34 on Dec 09,2024
+# Loading sv_std.std
+# Loading work.Connect4_tb
+# Loading work.Connect4
+# Loading work.ClockDivider
+# Loading work.GameLogic
+# Loading work.TokenAnimation
+# Loading work.GameOver
+# Loading work.HEXDisplay
+# Loading work.LEDDriver
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: marie  Hostname: DESKTOP-PNROFJ5  ProcessID: 18404
+#           Attempting to use alternate WLF file "./wlftfj0wcm".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftfj0wcm
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./Connect4.sv(179)
+#    Time: 137002850 ps  Iteration: 1  Instance: /Connect4_tb
+# Break in Module Connect4_tb at ./Connect4.sv line 179
+# WARNING: No extended dataflow license exists
+add wave -position end  sim:/Connect4_tb/LEDR[0]
+add wave -position 1  sim:/Connect4_tb/KEY[0]
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/marievb/Downloads/lab8_verilog/lab8_verilog/Connect4_wave.do
+add wave -position end  sim:/Connect4_tb/dut/red_pixels
+add wave -position end  sim:/Connect4_tb/dut/grn_pixels
+restart
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 

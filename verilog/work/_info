@@ -1,0 +1,346 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/marie/Documents/EE271/lab8/lab8_verilog
+vClockDivider
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1733766632
+!i10b 1
+!s100 aQej1a]^SbUgCeD6<l[GS2
+IJeWld<8_=JW:F>EDmnXgk1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 ClockDivider_sv_unit
+S1
+Z3 dC:/Users/marievb/Downloads/lab8_verilog/lab8_verilog
+w1733765406
+8./ClockDivider.sv
+F./ClockDivider.sv
+L0 2
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1733766632.000000
+Z6 !s107 ./TokenAnimation.sv|./LEDDriver.sv|./HEXDisplay.sv|./GameOver.sv|./GameLogic.sv|./Connect4.sv|./ClockDivider.sv|
+Z7 !s90 -reportprogress|300|./ClockDivider.sv|./Connect4.sv|./GameLogic.sv|./GameOver.sv|./HEXDisplay.sv|./LEDDriver.sv|./TokenAnimation.sv|
+!i113 1
+Z8 tCvgOpt 0
+n@clock@divider
+vConnect4
+R0
+R1
+!i10b 1
+!s100 dme9EOd8bZRR_IP2Q]@Yl0
+I8elZRaL8;nM3i^P<@m47z3
+R2
+Z9 !s105 Connect4_sv_unit
+S1
+R3
+Z10 w1733766588
+Z11 8./Connect4.sv
+Z12 F./Connect4.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@connect4
+vConnect4_tb
+R0
+R1
+!i10b 1
+!s100 _K_bgL8f7Sdlb22@gjaHh0
+Ia2Qg64UA?h4X2KKQHDQhH3
+R2
+R9
+S1
+R3
+R10
+R11
+R12
+L0 82
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@connect4_tb
+vGameLogic
+R0
+R1
+!i10b 1
+!s100 J7C:31XF7U>liBX_9XO6d2
+I]Jf@:]>Vg8S?J:dkM_dRk0
+R2
+Z13 !s105 GameLogic_sv_unit
+S1
+R3
+Z14 w1733765407
+Z15 8./GameLogic.sv
+Z16 F./GameLogic.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@game@logic
+vGameLogic_tb
+R0
+R1
+!i10b 1
+!s100 ma@;[gF9fzddY=`17YRki3
+Id@6zWL9:;Yg_SNiJjeMg92
+R2
+R13
+S1
+R3
+R14
+R15
+R16
+L0 108
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@game@logic_tb
+vGameOver
+R0
+R1
+!i10b 1
+!s100 1cMN[WO@dhHWLk:`3dkjN2
+IiE:MZXA<OY]U;;G_G<L:02
+R2
+Z17 !s105 GameOver_sv_unit
+S1
+R3
+R14
+Z18 8./GameOver.sv
+Z19 F./GameOver.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@game@over
+vGameOver_tb
+R0
+R1
+!i10b 1
+!s100 ;McdISVAZL`kW`EnZ59Bl3
+IEdSCV1cBnH=EiZSFf7e8m3
+R2
+R17
+S1
+R3
+R14
+R18
+R19
+L0 118
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@game@over_tb
+vHEXDisplay
+R0
+R1
+!i10b 1
+!s100 UeSh9L9V<=J<<1mb0R;842
+ITeJ0aXnE?C`X4QGl:niTb2
+R2
+Z20 !s105 HEXDisplay_sv_unit
+S1
+R3
+R14
+Z21 8./HEXDisplay.sv
+Z22 F./HEXDisplay.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@h@e@x@display
+vHEXDisplay_tb
+R0
+R1
+!i10b 1
+!s100 M1W`lWhIKT<WB8:Ohn>_T3
+IbMnmmC`7Vg2[nk]VV5YDU3
+R2
+R20
+S1
+R3
+R14
+R21
+R22
+L0 66
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@h@e@x@display_tb
+vLEDDriver
+R0
+R1
+!i10b 1
+!s100 JiAHBkK@6c_;:YN4[>j7<3
+ICW^9z;F45c1OgTmP7Ij6d3
+R2
+Z23 !s105 LEDDriver_sv_unit
+S1
+R3
+Z24 w1733765408
+Z25 8./LEDDriver.sv
+Z26 F./LEDDriver.sv
+L0 13
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@l@e@d@driver
+vLEDDriver_Test
+R0
+R1
+!i10b 1
+!s100 7d5<0Kb7WnMbAASRRbV<P3
+I24z]WBdkFVd33ESQ4Ae<Y3
+R2
+R23
+S1
+R3
+R24
+R25
+R26
+L0 34
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@l@e@d@driver_@test
+vLEDDriver_TestPhysical
+R0
+R1
+!i10b 1
+!s100 WjU?EdQdFmD<AcS828m012
+ISWgN:gM:a;Zh2KTzI;7192
+R2
+R23
+S1
+R3
+R24
+R25
+R26
+L0 71
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@l@e@d@driver_@test@physical
+vTokenAnimation
+R0
+R1
+!i10b 1
+!s100 H6X87[G7LS9]VU7z@8R761
+IJ0i3lVzXUWlUXJB4[B8zj2
+R2
+Z27 !s105 TokenAnimation_sv_unit
+S1
+R3
+R24
+Z28 8./TokenAnimation.sv
+Z29 F./TokenAnimation.sv
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@token@animation
+vTokenAnimation_tb
+R0
+R1
+!i10b 1
+!s100 EX8]TQSh4;KlNXm551^_n0
+IFhB_Qf7d4HDc9XV=2JGYa3
+R2
+R27
+S1
+R3
+R24
+R28
+R29
+L0 94
+R4
+r1
+!s85 0
+31
+R5
+R6
+R7
+!i113 1
+R8
+n@token@animation_tb

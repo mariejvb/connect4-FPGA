@@ -1,0 +1,910 @@
+Analysis & Synthesis report for DE1_SoC
+Tue Dec 10 16:55:21 2024
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: LEDDriver:driver_module
+ 12. Port Connectivity Checks: "LEDDriver:driver_module"
+ 13. Port Connectivity Checks: "GameLogic:game_logic"
+ 14. Port Connectivity Checks: "ClockDivider:clock_divider"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Dec 10 16:55:21 2024          ;
+; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                   ; DE1_SoC                                        ;
+; Top-level Entity Name           ; Connect4                                       ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 296                                            ;
+; Total pins                      ; 103                                            ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; Connect4           ; DE1_SoC            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; State Machine Processing                                                        ; User-Encoded       ; Auto               ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                       ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+; LEDDriver.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/marie/Documents/EE271/lab8/lab8_verilog/LEDDriver.sv      ;         ;
+; ClockDivider.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/marie/Documents/EE271/lab8/lab8_verilog/ClockDivider.sv   ;         ;
+; GameOver.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/marie/Documents/EE271/lab8/lab8_verilog/GameOver.sv       ;         ;
+; HEXDisplay.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/marie/Documents/EE271/lab8/lab8_verilog/HEXDisplay.sv     ;         ;
+; Connect4.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/marie/Documents/EE271/lab8/lab8_verilog/Connect4.sv       ;         ;
+; GameLogic.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/marie/Documents/EE271/lab8/lab8_verilog/GameLogic.sv      ;         ;
+; TokenAnimation.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/marie/Documents/EE271/lab8/lab8_verilog/TokenAnimation.sv ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                 ;
++---------------------------------------------+-----------------------------------------------+
+; Resource                                    ; Usage                                         ;
++---------------------------------------------+-----------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 856                                           ;
+;                                             ;                                               ;
+; Combinational ALUT usage for logic          ; 1372                                          ;
+;     -- 7 input functions                    ; 61                                            ;
+;     -- 6 input functions                    ; 222                                           ;
+;     -- 5 input functions                    ; 242                                           ;
+;     -- 4 input functions                    ; 238                                           ;
+;     -- <=3 input functions                  ; 609                                           ;
+;                                             ;                                               ;
+; Dedicated logic registers                   ; 296                                           ;
+;                                             ;                                               ;
+; I/O pins                                    ; 103                                           ;
+;                                             ;                                               ;
+; Total DSP Blocks                            ; 0                                             ;
+;                                             ;                                               ;
+; Maximum fan-out node                        ; ClockDivider:clock_divider|divided_clocks[13] ;
+; Maximum fan-out                             ; 283                                           ;
+; Total fan-out                               ; 6724                                          ;
+; Average fan-out                             ; 3.59                                          ;
++---------------------------------------------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                     ;
++-------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node          ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                      ; Entity Name    ; Library Name ;
++-------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------+----------------+--------------+
+; |Connect4                           ; 1372 (66)           ; 296 (1)                   ; 0                 ; 0          ; 103  ; 0            ; |Connect4                                ; Connect4       ; work         ;
+;    |ClockDivider:clock_divider|     ; 14 (14)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |Connect4|ClockDivider:clock_divider     ; ClockDivider   ; work         ;
+;    |GameLogic:game_logic|           ; 149 (149)           ; 107 (107)                 ; 0                 ; 0          ; 0    ; 0            ; |Connect4|GameLogic:game_logic           ; GameLogic      ; work         ;
+;    |GameOver:game_over_module|      ; 871 (871)           ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |Connect4|GameOver:game_over_module      ; GameOver       ; work         ;
+;    |HEXDisplay:hex_display|         ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Connect4|HEXDisplay:hex_display         ; HEXDisplay     ; work         ;
+;    |LEDDriver:driver_module|        ; 70 (70)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |Connect4|LEDDriver:driver_module        ; LEDDriver      ; work         ;
+;    |TokenAnimation:token_animation| ; 196 (196)           ; 167 (167)                 ; 0                 ; 0          ; 0    ; 0            ; |Connect4|TokenAnimation:token_animation ; TokenAnimation ; work         ;
++-------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                  ;
++------------------------------------------------------+----------------------------------------------+
+; Register name                                        ; Reason for Removal                           ;
++------------------------------------------------------+----------------------------------------------+
+; TokenAnimation:token_animation|animation_grn[0][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[0][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[0][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[0][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[0][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[0][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[0][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[0][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[1][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[1][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[1][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[1][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[1][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[1][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[1][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[1][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[2][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[2][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[2][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[2][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[2][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[2][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[2][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[2][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[3][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[3][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[3][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[3][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[3][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[3][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[3][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[3][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[4][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[4][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[4][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[4][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[4][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[4][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[4][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[4][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[5][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[5][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[5][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[5][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[5][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[5][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[5][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[5][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[6][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[6][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[6][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[6][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[6][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[6][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[6][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[6][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[7][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[7][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[7][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[7][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[7][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[7][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[7][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[7][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][8]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][9]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][10]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][11]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][12]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][13]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][14]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[8][15]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][8]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][9]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][10]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][11]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][12]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][13]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][14]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[9][15]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[10][15] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[11][15] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[12][15] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[13][15] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[14][15] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_grn[15][15] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[0][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[0][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[0][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[0][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[0][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[0][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[0][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[0][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[1][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[1][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[1][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[1][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[1][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[1][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[1][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[1][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[2][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[2][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[2][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[2][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[2][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[2][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[2][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[2][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[3][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[3][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[3][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[3][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[3][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[3][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[3][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[3][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[4][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[4][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[4][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[4][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[4][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[4][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[4][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[4][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[5][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[5][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[5][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[5][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[5][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[5][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[5][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[5][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[6][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[6][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[6][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[6][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[6][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[6][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[6][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[6][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[7][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[7][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[7][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[7][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[7][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[7][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[7][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[7][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][8]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][9]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][10]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][11]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][12]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][13]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][14]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[8][15]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][0]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][1]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][2]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][3]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][4]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][5]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][6]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][7]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][8]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][9]   ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][10]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][11]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][12]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][13]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][14]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[9][15]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[10][15] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[11][15] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[12][15] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[13][15] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[14][15] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][0]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][1]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][2]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][3]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][4]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][5]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][6]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][7]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][8]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][9]  ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][10] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][11] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][12] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][13] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][14] ; Stuck at GND due to stuck port data_in       ;
+; TokenAnimation:token_animation|animation_red[15][15] ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[0][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[0][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[0][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[0][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[0][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[0][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[0][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[0][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[1][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[1][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[1][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[1][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[1][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[1][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[1][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[1][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[2][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[2][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[2][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[2][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[2][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[2][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[2][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[2][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[3][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[3][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[3][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[3][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[3][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[3][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[3][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[3][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[4][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[4][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[4][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[4][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[4][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[4][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[4][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[4][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[5][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[5][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[5][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[5][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[5][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[5][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[5][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_grn[5][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[0][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[0][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[0][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[0][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[0][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[0][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[0][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[0][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[1][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[1][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[1][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[1][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[1][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[1][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[1][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[1][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[2][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[2][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[2][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[2][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[2][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[2][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[2][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[2][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[3][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[3][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[3][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[3][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[3][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[3][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[3][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[3][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[4][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[4][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[4][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[4][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[4][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[4][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[4][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[4][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[5][0]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[5][1]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[5][2]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[5][3]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[5][4]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[5][5]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[5][6]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|board_red[5][7]                 ; Stuck at GND due to stuck port data_in       ;
+; GameLogic:game_logic|valid_move                      ; Merged with GameLogic:game_logic|player_move ;
+; ClockDivider:clock_divider|divided_clocks[14..31]    ; Lost fanout                                  ;
+; Total Number of Removed Registers = 499              ;                                              ;
++------------------------------------------------------+----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 296   ;
+; Number of registers using Synchronous Clear  ; 256   ;
+; Number of registers using Synchronous Load   ; 115   ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 38    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Connect4|TokenAnimation:token_animation|stored_column[0]     ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Connect4|TokenAnimation:token_animation|final_column[1]      ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Connect4|TokenAnimation:token_animation|current_row[2]       ;
+; 6:1                ; 24 bits   ; 96 LEs        ; 48 LEs               ; 48 LEs                 ; Yes        ; |Connect4|TokenAnimation:token_animation|drop_timer[6]        ;
+; 8:1                ; 56 bits   ; 280 LEs       ; 0 LEs                ; 280 LEs                ; Yes        ; |Connect4|TokenAnimation:token_animation|animation_red[4][10] ;
+; 8:1                ; 56 bits   ; 280 LEs       ; 0 LEs                ; 280 LEs                ; Yes        ; |Connect4|TokenAnimation:token_animation|animation_grn[4][9]  ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |Connect4|TokenAnimation:token_animation|animation_red[0][12] ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |Connect4|TokenAnimation:token_animation|animation_grn[0][12] ;
+; 142:1              ; 2 bits    ; 188 LEs       ; 186 LEs              ; 2 LEs                  ; Yes        ; |Connect4|GameOver:game_over_module|winner[1]                 ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |Connect4|GameLogic:game_logic|Mux1                           ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 112 LEs              ; 80 LEs                 ; No         ; |Connect4|LEDDriver:driver_module|Mux10                       ;
+; 50:1               ; 2 bits    ; 66 LEs        ; 64 LEs               ; 2 LEs                  ; No         ; |Connect4|TokenAnimation:token_animation|Mux6                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LEDDriver:driver_module ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; FREQDIV        ; 0     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "LEDDriver:driver_module" ;
++-------------+-------+----------+--------------------+
+; Port        ; Type  ; Severity ; Details            ;
++-------------+-------+----------+--------------------+
+; RST         ; Input ; Info     ; Stuck at GND       ;
+; EnableCount ; Input ; Info     ; Stuck at VCC       ;
++-------------+-------+----------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "GameLogic:game_logic"                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; waiting_for_switch ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ClockDivider:clock_divider"                                                                           ;
++------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                   ; Type   ; Severity ; Details                                                                             ;
++------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; divided_clocks[31..14] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; divided_clocks[12..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 296                         ;
+;     ENA               ; 12                          ;
+;     ENA SCLR          ; 26                          ;
+;     SCLR              ; 116                         ;
+;     SCLR SLD          ; 114                         ;
+;     SLD               ; 1                           ;
+;     plain             ; 27                          ;
+; arriav_lcell_comb     ; 1374                        ;
+;     arith             ; 173                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 139                         ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 13                          ;
+;         4 data inputs ; 2                           ;
+;     extend            ; 61                          ;
+;         7 data inputs ; 61                          ;
+;     normal            ; 1108                        ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 87                          ;
+;         3 data inputs ; 316                         ;
+;         4 data inputs ; 235                         ;
+;         5 data inputs ; 242                         ;
+;         6 data inputs ; 222                         ;
+;     shared            ; 32                          ;
+;         0 data inputs ; 28                          ;
+;         2 data inputs ; 3                           ;
+;         4 data inputs ; 1                           ;
+; boundary_port         ; 103                         ;
+;                       ;                             ;
+; Max LUT depth         ; 24.00                       ;
+; Average LUT depth     ; 13.47                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:14     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Tue Dec 10 16:54:53 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE1_SoC -c DE1_SoC
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 3 design units, including 3 entities, in source file leddriver.sv
+    Info (12023): Found entity 1: LEDDriver File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/LEDDriver.sv Line: 13
+    Info (12023): Found entity 2: LEDDriver_Test File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/LEDDriver.sv Line: 34
+    Info (12023): Found entity 3: LEDDriver_TestPhysical File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/LEDDriver.sv Line: 71
+Info (12021): Found 1 design units, including 1 entities, in source file clockdivider.sv
+    Info (12023): Found entity 1: ClockDivider File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/ClockDivider.sv Line: 2
+Info (12021): Found 2 design units, including 2 entities, in source file gameover.sv
+    Info (12023): Found entity 1: GameOver File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/GameOver.sv Line: 2
+    Info (12023): Found entity 2: GameOver_tb File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/GameOver.sv Line: 118
+Info (12021): Found 2 design units, including 2 entities, in source file hexdisplay.sv
+    Info (12023): Found entity 1: HEXDisplay File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/HEXDisplay.sv Line: 2
+    Info (12023): Found entity 2: HEXDisplay_tb File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/HEXDisplay.sv Line: 66
+Info (12021): Found 2 design units, including 2 entities, in source file connect4.sv
+    Info (12023): Found entity 1: Connect4 File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/Connect4.sv Line: 2
+    Info (12023): Found entity 2: Connect4_tb File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/Connect4.sv Line: 81
+Info (12021): Found 2 design units, including 2 entities, in source file gamelogic.sv
+    Info (12023): Found entity 1: GameLogic File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/GameLogic.sv Line: 2
+    Info (12023): Found entity 2: GameLogic_tb File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/GameLogic.sv Line: 108
+Info (12021): Found 2 design units, including 2 entities, in source file tokenanimation.sv
+    Info (12023): Found entity 1: TokenAnimation File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/TokenAnimation.sv Line: 2
+    Info (12023): Found entity 2: TokenAnimation_tb File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/TokenAnimation.sv Line: 94
+Info (12127): Elaborating entity "Connect4" for the top level hierarchy
+Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:clock_divider" File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/Connect4.sv Line: 30
+Info (12128): Elaborating entity "GameLogic" for hierarchy "GameLogic:game_logic" File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/Connect4.sv Line: 44
+Info (10264): Verilog HDL Case Statement information at GameLogic.sv(24): all case item expressions in this case statement are onehot File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/GameLogic.sv Line: 24
+Info (12128): Elaborating entity "TokenAnimation" for hierarchy "TokenAnimation:token_animation" File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/Connect4.sv Line: 49
+Info (12128): Elaborating entity "GameOver" for hierarchy "GameOver:game_over_module" File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/Connect4.sv Line: 52
+Info (12128): Elaborating entity "HEXDisplay" for hierarchy "HEXDisplay:hex_display" File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/Connect4.sv Line: 55
+Info (12128): Elaborating entity "LEDDriver" for hierarchy "LEDDriver:driver_module" File: C:/Users/marie/Documents/EE271/lab8/lab8_verilog/Connect4.sv Line: 59
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 18 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/marie/Documents/EE271/lab8/lab8_verilog/output_files/DE1_SoC.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1604 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 88 output pins
+    Info (21061): Implemented 1501 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4844 megabytes
+    Info: Processing ended: Tue Dec 10 16:55:21 2024
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:43
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/marie/Documents/EE271/lab8/lab8_verilog/output_files/DE1_SoC.map.smsg.
+
+
